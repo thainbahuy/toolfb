@@ -109,7 +109,7 @@ app.get('/execute', function(request, response) {
     response.redirect("/index");
 });
 
-function cronTask(){
+function cronTask() {
     cron.schedule('0 */4 * * * *', () => {
         getAllTokenFromDB();
     });
