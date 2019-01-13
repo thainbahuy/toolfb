@@ -1,17 +1,14 @@
 const express = require('express');
 const app = express();
-//const port = process.env.NODE_PORT || 3000;
+const port = process.env.NODE_PORT || 3000;
 var cron = require('node-cron');
-// app.listen(port, function () {
-//     console.log('App listening on port: ' + port);
-// });
+app.listen(port, function () {
+    console.log('App listening on port: ' + port);
+});
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-app.listen(3000,function(){
-    console.log('App listening on port: 3000');
-});
 const facebookAPI = require('../Data/API/facebook_sdk');
 const DataLocal = require('../Data/Db/DataModel');
 
