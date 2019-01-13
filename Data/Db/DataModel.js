@@ -1,5 +1,10 @@
 var db = require('./../Db/Dbconnection.js');
 var DataDB = {
+    
+    getTotal : function (callback) {  
+        return db.query("select count(*) as total  from TOKEN",callback);
+    },
+
     addToken : function(token,callback){
         return db.query("insert into TOKEN (Access_Token) values(?)",[token],callback)
     },

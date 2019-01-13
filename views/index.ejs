@@ -94,11 +94,35 @@
                 
               </ol>
 
+              <div class="row">
+                <div class="col-xl-3 col-sm-6 mb-3">
+                  <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                      <div class="card-body-icon">
+                        <i class="fas fa-fw fa-list"></i>
+                      </div>
+                        <div class="mr-5">
+                        <%result.forEach(function(value){ %>
+                              <%=value.total%> User
+                        <% }) %>
+                        </div>
+                      
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#dataTable" onclick="detailEventPhoto ()">
+                      <!--<span class="float-left">View Details</span>--> 
+                      <span class="float-right">
+                        <i class="fas fa-angle-right"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <!-- input -->
               <!-- <div class="container"> -->
                 <!-- <div class="card card-register mx-auto mt-5"> -->
                   <!-- <div class="card-header">Add New Event</div> -->
-                  <div class="card-body">
+                  <div >
                     <form action = "/execute" method = "get">
                       <div class="form-group">
                         <div class="form-row">

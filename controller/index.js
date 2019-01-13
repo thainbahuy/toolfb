@@ -89,12 +89,21 @@ function checkPostIsLiked(object_id,access_token,callback){
     });
 }
 
-cron.schedule('0 */4 * * * *', () => {
+cron.schedule('0 */5 * * * *', () => {
     getAllTokenFromDB();
 });
 
 app.get("/index", function(request, response)  {
-    response.render("index");
+    DataLocal.getTotal(function(err,rows){
+        if(err){
+            throw err;
+        }else{
+            var obj = { result :rows}
+            console.log(obj);
+            response.render("index",obj);
+        }
+    });
+    
     
 });
 
@@ -110,12 +119,8 @@ app.get('/execute', function(request, response) {
 });
 
 function cronTask() {
-    cron.schedule('0 */4 * * * *', () => {
+    cron.schedule('0 */5 * * * *', () => {
         getAllTokenFromDB();
     });
 }
-
-
-
-
 
