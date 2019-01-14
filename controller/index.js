@@ -121,3 +121,7 @@ function cronTask() {
     });
 }
 
+function newfunction (){
+    console.log(1);
+}
+
