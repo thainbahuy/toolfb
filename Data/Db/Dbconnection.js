@@ -3,6 +3,6 @@ var connection = mysql.createPool({
     host:'localhost',
     user:'root',
     password:'',
-    database:'FbToolDb'
+    database:'FbToolDb2'
 });
 module.exports=connection;
