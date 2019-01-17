@@ -18,6 +18,10 @@ var DataDB = {
 
     checkObjectidIsLiked :function(object_id,access_token,callback){
         return db.query("select 1 from POST where Object_id = ? and Access_Token = ?",[object_id,access_token],callback);
+    },
+
+    deleteObjectId : function (callback){
+        return db.query("truncate table POST",callback);
     }
 };
 module.exports=DataDB;

@@ -86,8 +86,21 @@ function checkPostIsLiked(object_id,access_token,callback){
     });
 }
 
+//truncate table post
+function deleteAllObjectId(){
+    DataLocal.deleteObjectId(function (err) {  
+        if(err){
+            throw err;
+        }
+    });
+}
+
 cron.schedule('0 */5 * * * *', () => {
     getAllTokenFromDB();
+});
+
+cron.schedule('0 0 * * SUN', () => {
+    deleteAllObjectId();
 });
 
 app.get("/index", function(request, response)  {
@@ -118,6 +131,9 @@ app.get('/execute', function(request, response) {
 function cronTask() {
     cron.schedule('0 */5 * * * *', () => {
         getAllTokenFromDB();
+    });
+    cron.schedule('0 0 * * SUN', () => {
+        deleteAllObjectId();
     });
 }
 
