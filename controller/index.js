@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-const server_ip = process.env.OPENSHIFT_NODEJS_IP || '10.129.32.53';
+const port = process.env.PORT || 8080;
+// const server_ip = process.env.OPENSHIFT_NODEJS_IP || '10.129.32.53';
 var cron = require('node-cron');
-app.listen(port,server_ip,function () {
+app.listen(port,function () {
     console.log('App listening on port: ' + port);
 });
 app.use(express.static("public"));
